@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrarse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #ff0000;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html">Volver al Inicio</a>
+    <h1>Registrarse</h1>
+    <form id="registerForm" method="post" action="registro.php">
+        <label for="newUsername">Nuevo nombre de usuario:</label>
+        <input type="text" id="newUsername" name="newUsername" required>
+        <br>
+        <label for="newPassword">Nueva contraseña:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+        <br>
+        <label for="confirmPassword">Confirmar contraseña:</label>
+        <input type="password" id="confirmPassword" required>
+        <br>
+        <p id="mensajeSeguridad" class="error"></p>
+        <br>
+        <button type="button" onclick="evaluarContrasena()">Registrarse</button>
+    </form>
+
+    <script>
+        function evaluarContrasena() {
+            const contrasena = document.getElementById("newPassword").value;
+            const confirmarContrasena = document.getElementById("confirmPassword").value;
+            const mensajeSeguridad = document.getElementById("mensajeSeguridad");
+
+            if (contrasena !== confirmarContrasena) {
+                mensajeSeguridad.textContent = "Las contraseñas no coinciden";
+                return; // Evita que el formulario se envíe si las contraseñas no coinciden
+            }
+
+            // Verificar la seguridad de la contraseña
+            if (contrasena.length < 8) {
+                mensajeSeguridad.textContent = "La contraseña es demasiado corta";
+            } else {
+                mensajeSeguridad.textContent = "La contraseña es segura";
+                // Aquí puedes agregar el código para enviar el formulario
+                document.getElementById("registerForm").submit();
+            }
+        }
+    </script>
+</body>
+</html>
