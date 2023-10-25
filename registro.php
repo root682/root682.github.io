@@ -1,9 +1,9 @@
 <?php
 // Establecer la conexión a la base de datos
-$servername = "http://localhost:5500"; // Cambia a la dirección de tu servidor MySQL
-$username = "nombre_de_usuario"; // Cambia a tu nombre de usuario de MySQL
-$password = "contraseña"; // Cambia a tu contraseña de MySQL
-$dbname = "nombre_de_la_base_de_datos"; // Cambia al nombre de tu base de datos
+$servername = "root682.github.io"; // Cambia a la dirección de tu servidor MySQL
+$username = "Hackvenom"; // Cambia a tu nombre de usuario de MySQL
+$password = "Isaac_2005"; // Cambia a tu contraseña de MySQL
+$dbname = "mydatabase.sql"; // Cambia al nombre de tu base de datos
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
