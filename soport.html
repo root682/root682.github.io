@@ -1,111 +1,55 @@
 <!DOCTYPE html>
-<html>
-<head>    
-    <a href="index.html">Volver al Inicio</a>
-  </body>
- </html>
- 
-<html>
+<html lang="es">
 <head>
-    <title>Chat de Soporte</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próximamente</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-        }
         body {
+            background-color: #f1f1f1;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        #chat-box {
-            width: 80%;
-            max-width: 400px;
-            border: 1px solid #ccc;
-            padding: 10px;
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff5722;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
             border-radius: 5px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
         }
-        #chat-log {
-            min-height: 200px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-            overflow-y: scroll;
-        }
-        #user-input {
-            width: 100%;
-            padding: 5px;
-            border: 1px solid #000000;
-            border-radius: 5px;
-        }
-        #send-button {
-            background-color: #007BFF;
-            color: #000000;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
+
+        a:hover {
+            background-color: #e64a19;
         }
     </style>
 </head>
 <body>
-    <div id="chat-box">
-        <div id="chat-log"></div>
-        <input type="text" id="user-input" placeholder="Escribe un mensaje..." />
-        <button id="send-button">Enviar</button>
+    <div class="container">
+        <h1>¡Próximamente!</h1>
+        <p>Estamos trabajando en algo emocionante. ¡Vuelve pronto!</p>
+        <a href="#">Más información</a>
     </div>
-
-    <script>
-        const chatLog = document.getElementById('chat-log');
-        const userInput = document.getElementById('user-input');
-        const sendButton = document.getElementById('send-button');
-    
-        sendButton.addEventListener('click', () => {
-            sendMessage();
-        });
-    
-        userInput.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        });
-    
-        function sendMessage() {
-            const message = userInput.value;
-            if (message) {
-                // Mostrar el mensaje del usuario en el chat
-                appendMessage('Tú', message);
-    
-                // Aquí puedes enviar el mensaje al servidor o a un sistema de soporte real
-                // y manejar la respuesta en la función callback
-                simulateSupportResponse(message);
-    
-                // Limpiar el campo de entrada
-                userInput.value = '';
-            }
-        }
-    
-        function simulateSupportResponse(userMessage) {
-    // En un entorno de producción, esta función enviaría el mensaje del usuario
-    // al servidor o sistema de soporte para recibir una respuesta real.
-    // Aquí, simulamos una respuesta de soporte después de un retraso.
-    setTimeout(() => {
-        const response = 'Un agente de soporte ha respondido: Gracias por tu mensaje. ¿En qué puedo ayudarte?';
-        appendMessage('Soporte', response);
-    }, 1000);
-}
-        
-    
-        function appendMessage(sender, message) {
-            const messageElement = document.createElement('div');
-            messageElement.textContent = `${sender}: ${message}`;
-            chatLog.appendChild(messageElement);
-    
-            // Desplazarse hacia abajo para mostrar el mensaje más reciente
-            chatLog.scrollTop = chatLog.scrollHeight;
-        }
-    </script>
 </body>
 </html>
